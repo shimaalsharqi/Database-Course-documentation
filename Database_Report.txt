@@ -94,3 +94,66 @@ Roles in a Database System
 |                      | and ensures proper communication between the system and the DBMS.                                     |
 | BI Developer        | Converts raw data into meaningful insights through reports, dashboards, and analytics. Performs ETL   |
 |                     | processes and works with data warehouses and business intelligence tools.                             |
+
+
+
+Types of Databases
+1. Relational vs Non-Relational Databases
+Relational Databases (RDBMS)
+
+Relational databases store data in structured tables with rows and columns. They use SQL for querying and rely on primary and foreign keys to define relationships between tables.
+Examples: MySQL, PostgreSQL, SQL Server, Oracle.
+Best for: transactional systems, financial data, student systems, ERP, applications requiring strong consistency.
+
+Non-Relational Databases (NoSQL)
+
+Non-relational databases do not follow a strict tabular structure. They store data in flexible formats such as documents, key-value pairs, graphs, or wide-column stores.
+Examples:
+
+Document Store → MongoDB
+
+Wide Column Store → Cassandra
+
+Key-Value → Redis
+
+Graph → Neo4j
+Best for: large-scale distributed systems, real-time analytics, content management, IoT, social networks.
+
+2. Centralized vs Distributed vs Cloud Databases
+Centralized Database
+
+A centralized database is stored and managed on a single central server. All users access the same location.
+Advantages: easy to manage, strong security control, consistent data.
+Disadvantages: single point of failure, performance bottlenecks.
+
+Distributed Database
+
+A distributed database stores data across multiple servers or locations. These servers work together but may be geographically separated.
+Advantages: high availability, faster access for global users, fault tolerance.
+Disadvantages: more complex management, data synchronization challenges.
+Examples: Google Bigtable, Cassandra (distributed by design).
+
+Cloud Databases
+
+Hosted on cloud platforms and accessed over the internet. Managed by cloud providers such as Azure, AWS, or Google Cloud.
+Advantages: scalable, pay-as-you-go pricing, automated backups and updates.
+Disadvantages: depends on internet connectivity, potential privacy concerns.
+Examples:
+
+Azure SQL Database
+
+Amazon RDS
+
+Google Cloud Spanner
+Use Case Examples
+-----------------
+
+| Scenario / System               | Best Database Type                 | Reason                                                         |
+|---------------------------------|------------------------------------|----------------------------------------------------------------|
+| Banking and financial systems   | Relational (RDBMS)                 | Requires strong consistency and ACID transactions              |
+| Social media platforms          | Non-Relational (NoSQL – document/graph) | Handles massive unstructured data and high scalability |
+| Global e-commerce platform      | Distributed or Cloud Database      | High availability and fast access for users worldwide          |
+| IoT sensor data                 | NoSQL (wide column or key-value)   | Supports rapid data ingestion from large numbers of devices    |
+| University or HR system         | Relational Database                | Structured data with well-defined relationships                |
+| Analytics and dashboards        | Cloud Database or Data Warehouse   | Designed for large-scale processing and flexible querying      |
+
