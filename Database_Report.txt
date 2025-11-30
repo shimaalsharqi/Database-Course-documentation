@@ -1,0 +1,80 @@
+Database Course Documentation
+
+1. Comparison Between Flat File Systems and Relational Databases
+
+Flat File Systems and Relational Databases are both used for storing data, but they differ greatly in structure, redundancy handling, relationships, usage, and limitations. The following sections provide a detailed comparison.
+
+Structure
+
+Flat File Systems:
+Store data in simple text-based formats such as CSV or TXT. Records are listed sequentially, and there is no concept of tables, schemas, or defined relationships.
+
+Relational Databases:
+Organize data into structured tables (rows and columns). They use primary keys and foreign keys to define relationships and enforce data integrity.
+
+Data Redundancy
+
+Flat File Systems:
+High redundancy because the same data may be repeated across multiple files. There is no built-in mechanism to avoid duplication.
+
+Relational Databases:
+Redundancy is reduced through normalization techniques, which split data into related tables to avoid duplication and maintain consistency.
+
+Relationships
+
+Flat File Systems:
+Relationships are either implicit or manually duplicated. There is no formal system to link records between files.
+
+Relational Databases:
+Support explicit and well-defined relationships, such as:
+
+One-to-One (1–1)
+
+One-to-Many (1–M)
+
+Many-to-Many (M–M)
+These are enforced using primary and foreign keys.
+
+Example Usage
+
+Flat File Systems:
+Used for simple or temporary data storage such as:
+
+CSV lists
+
+Log files
+
+Small datasets that do not require complex querying
+
+Relational Databases:
+Used for large-scale systems that require structured data and complex operations, such as:
+
+Student registration systems
+
+Banking systems
+
+E-commerce applications
+
+Enterprise applications and web systems
+
+Drawbacks
+
+Flat File Systems:
+
+Hard to maintain
+
+No support for complex queries
+
+Weak security
+
+Higher chance of data inconsistency or corruption
+
+Relational Databases:
+
+More complex to design and manage
+
+May require licensing costs
+
+Require more storage and processing resources
+
+Need regular maintenance
