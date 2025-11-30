@@ -78,3 +78,19 @@ May require licensing costs
 Require more storage and processing resources
 
 Need regular maintenance
+
+Roles in a Database System
+| Role                | Description                                                                                           |
+|---------------------|-------------------------------------------------------------------------------------------------------|
+| System Analyst      | Responsible for gathering business requirements and analyzing organizational needs. Designs processes |
+|                     | and ensures that the database system aligns with business goals.                                      |
+| Database Designer   | Creates the logical and physical database models. Applies normalization and defines entities,         |
+|                     | attributes, relationships, and constraints to ensure proper structure.                                |
+| Database Developer  | Develops SQL queries, stored procedures, triggers, and views. Ensures efficient data manipulation,    |
+|                     | integration, and supports application requirements.                                                   |
+| DBA (Administrator) | Manages database performance, security, backups, and recovery. Responsible for installation, tuning,  |
+|                     | user management, and ongoing maintenance of the DBMS.                                                 |
+| Application Developer| Builds applications and interfaces that interact with the database. Works with APIs, backend logic,  |
+|                      | and ensures proper communication between the system and the DBMS.                                     |
+| BI Developer        | Converts raw data into meaningful insights through reports, dashboards, and analytics. Performs ETL   |
+|                     | processes and works with data warehouses and business intelligence tools.                             |
