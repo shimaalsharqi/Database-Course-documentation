@@ -216,3 +216,64 @@ For very large workloads, ongoing cloud usage costs may become higher compared t
 
 Users cannot manage the underlying hardware and sometimes cannot customize certain configurations.
 
+1. What is a Database Engine?
+
+A Database Engine is the core software component of a database system that handles the storage, retrieval, and updating of data. It processes SQL queries, manages transactions, enforces data integrity, and ensures efficient performance. Essentially, it is the “heart” of a database system that executes all database operations.
+
+2. Examples of Database Engines
+
+Some widely used database engines include:
+
+SQL Server (Microsoft)
+
+MySQL (Oracle)
+
+Oracle Database
+
+PostgreSQL
+
+Each engine has its own architecture and optimizations, but they all follow the principles of database management.
+Database Languages
+------------------
+
+Database engines use different languages or SQL dialects to define, query, and manipulate data. Some examples:
+
+1. SQL Server
+   - Language: T-SQL (Transact-SQL)
+   - Notes: Extended SQL with procedural programming features like stored procedures, triggers, and functions.
+
+2. Oracle Database
+   - Language: PL/SQL
+   - Notes: Procedural extension of SQL supporting triggers, procedures, and complex logic.
+
+3. MySQL
+   - Language: ANSI SQL (with some extensions)
+   - Notes: Standard SQL compliant with minor engine-specific extensions.
+
+4. PostgreSQL
+   - Language: PL/pgSQL
+   - Notes: ANSI SQL compliant with procedural extensions, supports stored procedures and functions.
+
+Relationship Between Engine and Language:
+- The database engine determines which SQL dialect is supported.
+- Basic ANSI SQL is portable across engines.
+- Proprietary extensions (T-SQL, PL/SQL, PL/pgSQL) are engine-specific.
+- Migration of advanced procedural code between engines requires adaptation.
+4. Relationship Between Engine and Language
+
+The database engine determines which SQL dialect or extensions are supported.
+
+While all engines generally support ANSI SQL (standard SQL), each engine adds proprietary extensions to handle advanced features like stored procedures, triggers, and transaction control.
+
+Therefore, SQL code written for one engine may need modification to run on another engine, especially if it uses proprietary features.
+
+5. Can One Language Work Across Different Engines?
+
+ANSI SQL is portable and works across most relational databases for basic queries.
+
+However, engine-specific features (like T-SQL for SQL Server or PL/SQL for Oracle) are not directly portable.
+
+Migrating SQL code between engines often requires adapting stored procedures, triggers, functions, and certain data types.
+
+Summary: Basic SQL is largely cross-platform, but advanced procedural code is engine-dependent.
+
