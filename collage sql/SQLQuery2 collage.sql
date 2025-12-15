@@ -238,3 +238,62 @@ VALUES
 (2, 'E102');
 select * from STUDENT_EXAMS
 
+--Display each student's full name
+select F_name + ' '+L_name as full_name 
+from  STUDENT
+--Display each student’s full name and GPA as GPA Score.
+ALTER TABLE STUDENT
+ADD GPA DECIMAL(3,2);
+UPDATE STUDENT
+SET GPA = 3.80
+WHERE S_id = 1;
+
+UPDATE STUDENT
+SET GPA = 3.40
+WHERE S_id = 2;
+SELECT S_id, F_name, L_name, GPA
+FROM STUDENT;
+
+SELECT 
+    F_name + ' ' + L_name AS Full_Name,
+    GPA AS GPA_Score
+FROM STUDENT;
+--List student IDs and names of students with GPA greater than 3.5
+SELECT 
+    S_id,
+    F_name + ' ' + L_name AS Student_Name
+FROM STUDENT
+WHERE GPA > 3.5;
+--Display students with GPA between 3.0 and 3.5.
+select *  
+ FROM STUDENT
+  WHERE GPA between 3.0 and 3.5
+  --Display students ordered by GPA descending
+  select *
+  FROM STUDENT
+ ORDER BY GPA DESC;
+ --Display the maximum, minimum, and average GPA
+ select 
+ max(GPA) as max_GPA,
+ min(GPA) as min_GPA,
+ avg(GPA) as avg_GPA
+ FROM STUDENT
+ --Display total number of students.
+ select count(*) as total_students
+  FROM STUDENT
+  --Display students whose names end with 'a'
+  SELECT *
+FROM Student
+WHERE F_name LIKE '%a';
+--DML
+--14. Insert your data as a new student (Student ID = 300045, GPA = 3.6)
+INSERT INTO STUDENT (F_name, L_name, Phone_no, DOB, Department_id, Hostel_id,GPA)
+VALUES
+('may', 'khalifa', '91111111', '2002-05-12', 1, 1,3.6)
+
+set identity_insert STUDENT on
+
+INSERT INTO STUDENT (S_id,F_name, L_name, Phone_no, DOB, Department_id, Hostel_id,GPA)
+VALUES
+(300045,'may', 'khalifa', '91111111', '2002-05-12', 1, 1,3.6)
+set identity_insert STUDENT off
