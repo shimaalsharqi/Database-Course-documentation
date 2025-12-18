@@ -157,3 +157,109 @@ SELECT * FROM RESERVATION;
 
 -- 9. Fares
 SELECT * FROM fares;
+
+--1. Display all flight leg records.
+SELECT * FROM FLIGHT_LEG
+--2. Display each flight leg ID, scheduled departure time, and arrival time.
+SELECT 
+    FL.leg_no AS Flight_Leg_ID,
+    LI.Departure_time,
+    LI.Arrival_time
+FROM FLIGHT_LEG FL
+JOIN LEG_INSTANCE LI
+    ON FL.leg_no = LI.leg_no
+	
+--3. Display each airplane’s ID, type, and seat capacity
+SELECT 
+    A.airplane_id,
+    A.type_name,
+    AT.max_seats AS seat_capacity
+FROM Airplane A
+JOIN AIRPLANE_TYPE AT
+    ON A.type_name = AT.type_name
+
+--4. Display each flight leg’s ID and available seats as AvailableSeats.
+SELECT 
+    leg_no AS FlightLegID,
+    NAS AS AvailableSeats
+FROM LEG_INSTANCE
+
+--5. List flight leg IDs with available seats greater than 100.
+SELECT 
+    leg_no AS FlightLegID,
+    NAS AS AvailableSeats
+FROM LEG_INSTANCE
+WHERE NAS > 100
+
+--6. List airplane IDs with seat capacity above 300
+SELECT airplane_id
+FROM Airplane
+WHERE total_seats > 300
+
+--7. Display airport codes and names where city = 'Cairo'
+SELECT airport_code, a_name
+FROM airport
+WHERE city = 'Cairo'
+--8 Display flight legs scheduled on 2025-06-10
+SELECT * 
+FROM LEG_INSTANCE
+WHERE L_date = '2025-06-10'
+--9. Display flight legs ordered by departure time.
+SELECT * 
+FROM LEG_INSTANCE
+ORDER BY Departure_time
+
+--10. Display the maximum, minimum, and average available seats.
+SELECT 
+    MAX(NAS) AS MaxAvailableSeats,
+    MIN(NAS) AS MinAvailableSeats,
+    AVG(NAS) AS AvgAvailableSeats
+FROM LEG_INSTANCE
+
+--11. Display total number of flight legs.
+SELECT COUNT(*) AS TotalFlightLegs
+FROM FLIGHT_LEG
+--12. Display airplanes whose type contains 'Boeing'.
+SELECT * 
+FROM Airplane
+WHERE type_name LIKE '%Boeing%'
+
+--13. Insert a new flight leg departing from 'CAI' to 'DXB' on 2025-06-10.
+INSERT INTO airport (airport_code, city, a_state, a_name)
+VALUES ('CAI', 'Cairo', 'Cairo', 'Cairo Airport'),
+       ('DXB', 'Dubai', 'Dubai', 'Dubai Airport');
+
+-- Insert a new flight
+INSERT INTO FLIGHT (restrictions, airline, weekdays)
+VALUES ('None', 'Emirates', 'Tue,Thu');
+
+-- Assume the new flight_no is 3 (or get the latest with IDENT_CURRENT)
+INSERT INTO FLIGHT_LEG (flight_no, airport_code)
+VALUES (3, 'CAI'), -- departure
+       (3, 'DXB'); -- arrival
+
+-- Insert LEG_INSTANCE for departure
+INSERT INTO LEG_INSTANCE (L_date, Departure_time, NAS, Arrival_time, leg_no, airplane_id)
+VALUES ('2025-06-10', '09:00', 180, '12:00', 5, 1),  -- departure leg
+       ('2025-06-10', '09:00', 180, '12:00', 6, 1);  -- arrival leg
+--14. Insert a customer with NULL contact number.
+INSERT INTO customer (customer_name, phone)
+VALUES ('Sara Ahmed', NULL)
+--15. Reduce available seats of your inserted flight leg by 5.
+UPDATE LEG_INSTANCE
+SET NAS = NAS - 5
+WHERE leg_no IN (5, 6)
+--16. Increase available seats by 10 for all domestic flights.
+UPDATE LEG_INSTANCE LI
+SET NAS = NAS + 10
+FROM LEG_INSTANCE LI
+JOIN FLIGHT_LEG FL ON LI.leg_no = FL.leg_no
+JOIN airport A ON FL.airport_code = A.airport_code
+WHERE A.city IN ('Muscat', 'Salalah')
+--17. Update airplane seat capacity by +20 where capacity < 150.
+UPDATE Airplane
+SET total_seats = total_seats + 20
+WHERE total_seats < 150
+--18. Delete canceled flight legs.
+DELETE FROM LEG_INSTANCE
+WHERE NAS = 0
